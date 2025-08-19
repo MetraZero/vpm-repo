@@ -1,0 +1,11 @@
+{
+  "name": "Metlabo VPM Repository",
+  "id": "com.metrazero.repo",
+  "url": "https://metrazero.github.io/vpm-repo",
+  "packages": [
+    {
+      "id": "com.metrazero.metlabo",
+      "url": "https://github.com/MetraZero/Metlabo/releases/download/v1.0.0/Metlabo-1.0.0.zip"
+    }
+  ]
+}
