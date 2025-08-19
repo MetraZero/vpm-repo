@@ -1,11 +1,22 @@
 {
-  "name": "Metlabo VPM Repository",
-  "id": "com.metrazero.repo",
-  "url": "https://metrazero.github.io/vpm-repo",
-  "packages": [
-    {
-      "id": "com.metrazero.metlabo",
-      "url": "https://github.com/MetraZero/Metlabo/releases/download/v1.0.0/Metlabo-1.0.0.zip"
+  "name": "MetraZero VPM Repository",
+  "id": "com.metrazero.vpmrepo",
+  "url": "https://metrazero.github.io/vpm-repo/",
+  "author": {
+    "name": "MetraZero",
+    "url": "https://github.com/MetraZero"
+  },
+  "packages": {
+    "com.metrazero.metlabo": {
+      "versions": {
+        "1.0.0": {
+          "url": "https://github.com/MetraZero/Metlabo/releases/download/v1.0.0/com.metrazero.metlabo-1.0.0.zip",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0",
+            "com.vrchat.udonsharp": ">=1.0.0"
+          }
+        }
+      }
     }
-  ]
+  }
 }
