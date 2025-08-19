@@ -12,13 +12,35 @@
       "description": "VRChat向けの自作スクリプト集（Logical Switch ほか）",
       "versions": {
         "1.0.0": {
+          "name": "com.metrazero.metlabo",
+          "displayName": "Metlabo",
           "version": "1.0.0",
-          "downloadUrl": "https://github.com/MetraZero/Metlabo/releases/download/v1.0.0/com.metrazero.metlabo-1.0.0.zip",
+          "unity": "2022.3",
+          "description": "VRChat向けの自作スクリプト集（Logical Switch ほか）。UdonSharpの便利コンポーネントをまとめています。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
           "vpmDependencies": {
             "com.vrchat.worlds": ">=3.7.0",
             "com.vrchat.udonsharp": ">=1.0.0"
           },
-          "unity": "2022.3"
+          "keywords": [
+            "VRChat",
+            "Udon",
+            "UdonSharp",
+            "Metlabo",
+            "LogicalSwitch"
+          ],
+          "samples": [
+            {
+              "displayName": "Logical Switch Sample",
+              "description": "Logical Switchの使い方サンプル。Prefabとシーンを含みます。",
+              "path": "Samples~/LogicalSwitch"
+            }
+          ],
+          "url": "https://github.com/MetraZero/Metlabo/releases/download/v1.0.0/com.metrazero.metlabo-1.0.0.zip"
         }
       }
     }
