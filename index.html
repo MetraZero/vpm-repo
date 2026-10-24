@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- v1.2.0 ロゴの下に一言（説明文）を追加。 -->
 <!-- v1.1.1 ロゴの白い下地をやめ、画像の透過をそのまま生かす。 -->
 <!-- v1.1.0 Metlab 配信リストの一覧ページのひな形。metlab.py が %%...%% を埋めて index.html を作る。直接 index.html を編集しないこと。 -->
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,7 +14,8 @@
 body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,"Hiragino Sans","Yu Gothic UI",sans-serif;line-height:1.7}
 main{max-width:760px;margin:0 auto;padding:32px 16px}
 header{text-align:center;margin-bottom:28px}
-h1{margin:0 0 20px}
+h1{margin:0 0 8px}
+.lead{margin:0 0 20px;color:var(--sub)}
 .logo{display:block;margin:0 auto;width:min(360px,80vw);height:auto}
 .bar{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px}
 .bar input{flex:1 1 260px;max-width:380px;min-width:0;font:inherit;font-size:.9em;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--field);color:var(--fg)}
@@ -37,6 +39,7 @@ dialog .close{display:flex;justify-content:flex-end;margin-top:16px}
 </style></head><body><main>
 <header>
 <h1><img class="logo" src="logo.webp" alt="めとらぼ（Metlab）"></h1>
+<p class="lead">AIをクソほど使っています</p>
 <div class="bar">
   <input id="url" type="text" value="https://metrazero.github.io/vpm-repo/index.json" readonly aria-label="配信リストの URL">
   <a class="btn primary" href="vcc://vpm/addRepo?url=https%3A%2F%2Fmetrazero.github.io%2Fvpm-repo%2Findex.json">VCC に追加</a>
