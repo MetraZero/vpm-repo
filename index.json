@@ -8,5 +8,30 @@
     "url": "https://metrazero.github.io/vpm-repo/",
     "text": "ツール一覧"
   },
-  "packages": {}
+  "packages": {
+    "com.metlab.ava.toggle": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.ava.toggle",
+          "displayName": "トグルをつくるやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "衣装やアクセサリのON/OFFメニューを Modular Avatar で非破壊に作るエディタ拡張。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.ava.toggle",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-AVA/blob/main/Packages/com.metlab.ava.toggle/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.avatars": ">=3.7.0",
+            "nadena.dev.modular-avatar": ">=1.10.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-AVA/releases/download/com.metlab.ava.toggle-v1.0.0/com.metlab.ava.toggle-1.0.0.zip",
+          "zipSHA256": "bf65b8c8d64556d4ea9390f398d6fb24bb83566a14b9339873b3a01ea44ec1d1"
+        }
+      }
+    }
+  }
 }
