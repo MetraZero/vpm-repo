@@ -23,7 +23,14 @@
 - 名前空間：`Metlab.<英名>`。名前空間の無いスクリプトは `wrapNamespace` で包む（UdonSharp は同名クラスがあると衝突する）
 - アセンブリ名：`Metlab.<英名>`（ランタイム）／`Metlab.<英名>.Editor`
 - 生成物の保存先：`Assets/MetlabGenerated/<ツール名>/`
-- 表記は Metlab に統一（Metlabo・メトラボ・MET などは使わない）
+- 表記は Metlab に統一（Metlabo・メトラボ・MET などは使わない）。シェーダー名も `Metlab/〜`
+- 試作段階のもの（開発側のコメントに「骨組み段階」など）は、開発側のバージョン（0.x）のまま公開し、`packages.json` に `"beta": true` を付ける（一覧ページで名前の横に黄色の BETA、README の先頭に試作版の注意書き）
+
+## 一覧ページ（index.html）の記載ルール
+
+- 見出しはロゴ画像 `logo.webp`（ダークモードでは反転表示）。サブタイトルは付けない
+- 各ツールは「名前（BETA）・バージョン・種別」→ 説明文 → 改行して「解説ページ」リンク（パッケージの README へ）
+- ページは `metlab.py` が自動で作る。手で直さず、`write_listing_page` を直す
 
 ## 新しく「リポジトリ化して」と言われたら
 
