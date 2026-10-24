@@ -1,0 +1,213 @@
+{
+  "_comment": "v1.0.0 Metlab 配布パッケージの定義。開発プロジェクトのどこからコピーし、配布用にどう書き換えるかをここで決める。",
+  "author": { "name": "MetraZero", "url": "https://github.com/MetraZero" },
+  "listing": {
+    "name": "Metlab",
+    "id": "com.metlab.vpm",
+    "url": "https://metrazero.github.io/vpm-repo/index.json",
+    "description": "MetraZero 制作の VRChat 向けツール（〜やつ シリーズ）"
+  },
+  "repos": {
+    "AVA": { "title": "Metlab AVA", "github": "MetraZero/Metlab-AVA", "local": "D:/Unity/Metlab-AVA", "summary": "アバター向けツール" },
+    "WLD": { "title": "Metlab WLD", "github": "MetraZero/Metlab-WLD", "local": "D:/Unity/Metlab-WLD", "summary": "ワールド向けツール" }
+  },
+  "packages": {
+    "com.metlab.ava.toggle": {
+      "displayName": "トグルをつくるやつ",
+      "description": "衣装やアクセサリのON/OFFメニューを Modular Avatar で非破壊に作るエディタ拡張。",
+      "repos": ["AVA"],
+      "release": "AVA",
+      "vpmDependencies": { "com.vrchat.avatars": ">=3.7.0", "nadena.dev.modular-avatar": ">=1.10.0" },
+      "menu": "Tools/Metlab/トグルをつくるやつ",
+      "sources": [
+        { "from": "D:/Unity/Project/MetAvatars/Assets/MetAvatars_CostumeToggle", "to": "", "exclude": ["_Backups", "_Generated", "Textures"] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.Toggle.asmdef", "name": "Metlab.Toggle", "editor": false, "references": ["VRC.SDK3A", "VRC.SDKBase"] },
+        { "path": "Editor/Metlab.Toggle.Editor.asmdef", "name": "Metlab.Toggle.Editor", "editor": true, "references": ["Metlab.Toggle", "VRC.SDK3A", "VRC.SDKBase", "nadena.dev.modular-avatar.core"] }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "old": "namespace MetAvatars.CostumeToggle", "new": "namespace Metlab.Toggle" },
+        { "glob": "Editor/CostumeToggleWindow.cs", "old": "Tools/メトラボ/トグルメニューをつくるやつ", "new": "Tools/Metlab/トグルをつくるやつ" },
+        { "glob": "Editor/CostumeToggleWindow.cs", "old": "new GUIContent(\"トグルメニューをつくるやつ\")", "new": "new GUIContent(\"トグルをつくるやつ\")" },
+        { "glob": "Editor/CostumeToggleWindow.cs", "old": "// トグルメニューをつくるやつ 本体ウィンドウ", "new": "// トグルをつくるやつ 本体ウィンドウ" },
+        { "glob": "Editor/CostumeToggleGenerator.cs", "old": "\"Assets/MetAvatars_CostumeToggle/_Generated\"", "new": "\"Assets/MetlabGenerated/トグルをつくるやつ\"" },
+        { "glob": "Editor/CostumeToggleGenerator.cs", "old": "\"Assets/MetAvatars_CostumeToggle/_Backups\"", "new": "\"Assets/MetlabGenerated/トグルをつくるやつ/_Backups\"" },
+        { "glob": "CostumeTogglePreset.cs", "old": "menuName = \"MetAvatars/衣装トグル設定テンプレート\"", "new": "menuName = \"Metlab/トグルをつくるやつ テンプレート\"" }
+      ],
+      "readme": [
+        "アバターの衣装・アクセサリ・小物などを、Expression メニューからON/OFFできるようにするエディタ拡張です。",
+        "Modular Avatar の部品を自動で組み立てるので、アバター本体のファイルは書き換えません（非破壊）。",
+        "",
+        "## できること",
+        "",
+        "- カテゴリ（サブメニュー）とアイテム（トグル）の作成。カテゴリ内の排他（どれか1つだけON）",
+        "- 初期状態でONにするアイテムの指定",
+        "- 「これがONのときは隠す」「全部OFFなら自動で表示」などの条件",
+        "- 着用時に素体のブレンドシェイプを変える／消す（服の突き抜け対策）",
+        "- コーディネイト（1ボタンで複数のトグルをまとめて切り替え）",
+        "- メニューアイコンの設定、パラメータ使用量の確認",
+        "- 設定をテンプレートとして保存し、別のアバターで読み込む",
+        "",
+        "## 使い方",
+        "",
+        "1. メニュー `Tools > Metlab > トグルをつくるやつ` を開く",
+        "2. 対象のアバターを指定し、「この avatar に衣装トグル設定を作成」を押す",
+        "3. 「トグル設定」タブでカテゴリとアイテムを作り、ON/OFFしたいオブジェクトを割り当てる",
+        "4. 生成ボタンを押すと、アバター直下に Modular Avatar の部品が作られる",
+        "",
+        "生成物と設定のバックアップは `Assets/MetlabGenerated/トグルをつくるやつ/` に保存されます。"
+      ]
+    },
+    "com.metlab.ava.haircolor": {
+      "displayName": "房を選んで髪色をかえるやつ",
+      "description": "シーンビューで髪の房をクリックして、房ごとに色を塗り分けるエディタ拡張。",
+      "repos": ["AVA"],
+      "release": "AVA",
+      "vpmDependencies": { "com.vrchat.avatars": ">=3.7.0" },
+      "menu": "Tools/Metlab/房を選んで髪色をかえるやつ",
+      "sources": [
+        { "from": "D:/Unity/Project/MetAvatars/Assets/MetAvatars_HairColorTool", "to": "", "exclude": ["_Generated"] }
+      ],
+      "asmdefs": [
+        { "path": "Editor/Metlab.HairColor.Editor.asmdef", "name": "Metlab.HairColor.Editor", "editor": true, "references": [] }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "old": "namespace MetAvatars.HairColorTool", "new": "namespace Metlab.HairColor" },
+        { "glob": "**/*.cs", "old": "Tools/メトラボ/", "new": "Tools/Metlab/" },
+        { "glob": "**/*.cs", "old": "髪ふさカラーエディタ", "new": "房を選んで髪色をかえるやつ" },
+        { "glob": "Editor/HairColorToolWindow.cs", "old": "new GUIContent(\"髪ふさカラー\")", "new": "new GUIContent(\"房を選んで髪色をかえるやつ\")" },
+        { "glob": "Editor/HairColorToolWindow.cs", "old": "\"Assets/MetAvatars_HairColorTool/_Generated\"", "new": "\"Assets/MetlabGenerated/房を選んで髪色をかえるやつ\"" }
+      ],
+      "readme": [
+        "髪のメッシュを「房（つながったポリゴンのかたまり）」ごとに見分けて、クリックした房だけ色を変えるエディタ拡張です。",
+        "元のメッシュやマテリアルのファイルは書き換えず、複製を作って差し替えます。",
+        "",
+        "## 使い方",
+        "",
+        "1. メニュー `Tools > Metlab > 房を選んで髪色をかえるやつ` を開く",
+        "2. 対象の髪のレンダラー（SkinnedMeshRenderer / MeshRenderer）を指定する",
+        "3. 「編集開始（プレビュー）」を押す（この時点ではファイルは作られない）",
+        "4. 色と塗り方を選び、シーンビューで髪をクリックする。同じ色でもう一度クリックすると解除",
+        "5. 「確定して保存」で、複製したメッシュとマテリアルを保存する",
+        "6. 「元データに戻す」でいつでも編集前に戻せる",
+        "",
+        "保存したファイルは `Assets/MetlabGenerated/房を選んで髪色をかえるやつ/` に作られます。"
+      ]
+    },
+    "com.metlab.shortcut": {
+      "displayName": "ショートカットをつくるやつ",
+      "description": "よく使うフォルダやアセットのショートカットを、実際のフォルダ構成とは別に整理できるタブ。フォルダの色分け付き。",
+      "repos": ["AVA", "WLD"],
+      "release": "AVA",
+      "vpmDependencies": {},
+      "menu": "Tools/Metlab/ショートカットをつくるやつ",
+      "sources": [
+        { "from": "D:/Unity/Project/MetAvatars/Assets/Metlab/Avatars/ショートカットタブ", "to": "", "exclude": ["Editor/Metlab.Avatars.ShortcutTab.Editor.asmdef"] }
+      ],
+      "asmdefs": [
+        { "path": "Editor/Metlab.Shortcut.Editor.asmdef", "name": "Metlab.Shortcut.Editor", "editor": true, "references": [] }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "old": "namespace Metlabo.EditorTools", "new": "namespace Metlab.Shortcut" },
+        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "[MenuItem(\"Window/MET_ Asset Shortcuts\")]", "new": "[MenuItem(\"Tools/Metlab/ショートカットをつくるやつ\")]" },
+        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "new GUIContent(\"MET Shortcuts\")", "new": "new GUIContent(\"ショートカットをつくるやつ\")" },
+        { "glob": "Editor/MET_FolderColorTag.cs", "old": "\"Assets/MET_ フォルダ色/", "new": "\"Assets/Metlab/フォルダ色/" }
+      ],
+      "readme": [
+        "Project ウィンドウとは別に、自分だけの「仮想フォルダ」でアセットのショートカットを整理できるタブです。",
+        "実際のフォルダ構成は変えずに、よく使うものを好きな順番・まとまりで並べられます。",
+        "",
+        "## できること",
+        "",
+        "- 仮想フォルダの作成と、アセット／フォルダのショートカットをドラッグで登録・並べ替え",
+        "- クリックで選択、もう一度クリックで開く（フォルダは中に入れる）",
+        "- フォルダの色分け、カスタムアイコン、優先度による並び順",
+        "- グリッド表示／リスト表示の切り替え",
+        "- Project ウィンドウでフォルダを右クリック → `Metlab > フォルダ色` で実フォルダにも色付け",
+        "",
+        "## 使い方",
+        "",
+        "メニュー `Tools > Metlab > ショートカットをつくるやつ` でタブを開き、Project ウィンドウからアセットやフォルダをドラッグして登録します。",
+        "",
+        "データは `ProjectSettings/MET_ShortcutData.json` に保存されます（Assets フォルダは汚しません）。"
+      ]
+    },
+    "com.metlab.wld.followplayer": {
+      "displayName": "オブジェクトをプレイヤーについてこさせるやつ",
+      "description": "オブジェクトをローカルプレイヤーの位置に追従させる UdonSharp スクリプト。軸ごとのON/OFFと範囲制限付き。",
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/METDEV/Script/FollowPlayerwithinBounds", "to": "", "exclude": [] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.FollowPlayer.asmdef", "name": "Metlab.FollowPlayer", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.Udon"], "udonsharp": "Metlab.FollowPlayer.asset" }
+      ],
+      "replace": [
+        { "glob": "FollowPlayerWithinBounds.cs", "old": "using UdonSharp;", "new": "// v1.0.0\n// オブジェクトをローカルプレイヤーの位置へ追従させる UdonSharp スクリプト（軸ごとのON/OFF・ワールド座標の範囲制限付き）。\n\nusing UdonSharp;" },
+        { "glob": "FollowPlayerWithinBounds.cs", "wrapNamespace": "Metlab.FollowPlayer" },
+        { "glob": "FollowPlayerWithinBounds.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+      ],
+      "readme": [
+        "オブジェクトを、そのワールドにいる自分（ローカルプレイヤー）の位置へついてこさせる UdonSharp スクリプトです。",
+        "追従させる軸（X・Y・Z）を個別にON/OFFでき、ワールド座標で動ける範囲を制限できます。",
+        "位置の更新は各プレイヤーの手元だけで行われ、同期はしません。",
+        "",
+        "## 使い方",
+        "",
+        "1. ついてこさせたいオブジェクトに `UdonBehaviour` を追加する",
+        "2. Program Source に `FollowPlayerWithinBounds`（このパッケージ内の .asset）を設定する",
+        "3. インスペクタで、追従させる軸・範囲（最小／最大）・更新間隔（秒）を設定する",
+        "",
+        "## 設定項目",
+        "",
+        "| 項目 | 内容 |",
+        "| --- | --- |",
+        "| followX / followY / followZ | その軸をプレイヤーに合わせるか |",
+        "| minX〜maxZ | ワールド座標での移動範囲 |",
+        "| updateInterval | 位置を更新する間隔（秒） |"
+      ]
+    },
+    "com.metlab.wld.skybox": {
+      "displayName": "スカイボックスをつくるやつ",
+      "description": "時間帯・天気・街並みを選ぶだけで、街の夜景などのスカイボックス用マテリアルを作るエディタ拡張とシェーダー。",
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "Tools/Metlab/スカイボックスをつくるやつ",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/スカイボックス", "to": "", "exclude": ["Editor/Metlab.Worlds.Skybox.Editor.asmdef"] }
+      ],
+      "asmdefs": [
+        { "path": "Editor/Metlab.Skybox.Editor.asmdef", "name": "Metlab.Skybox.Editor", "editor": true, "references": [] }
+      ],
+      "replace": [
+        { "glob": "**/*", "old": "Tools > Metlab > スカイボックス > スカイボックス生成", "new": "Tools > Metlab > スカイボックスをつくるやつ" },
+        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "\"Tools/Metlab/スカイボックス/スカイボックス生成\"", "new": "\"Tools/Metlab/スカイボックスをつくるやつ\"" },
+        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "Assets/MetlabGenerated/スカイボックス", "new": "Assets/MetlabGenerated/スカイボックスをつくるやつ" },
+        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "GetWindow<MET_SkyboxGenerator>(\"スカイボックス生成\")", "new": "GetWindow<MET_SkyboxGenerator>(\"スカイボックスをつくるやつ\")" },
+        { "glob": "**/*", "old": "MET/Skybox/City", "new": "Metlab/Skybox/City" },
+        { "glob": "Editor/MET_SkyboxGenerator.cs", "wrapNamespace": "Metlab.Skybox" }
+      ],
+      "readme": [
+        "時間帯・街の明るさ・視点の高さ・街並み・天気などを選ぶだけで、街の景色のスカイボックス用マテリアルを作るエディタ拡張です。",
+        "専用シェーダー（`Metlab/Skybox/City`）が、空・月や太陽・雲・ビルや住宅の明かり・道路・木などを描きます。",
+        "",
+        "## 使い方",
+        "",
+        "1. メニュー `Tools > Metlab > スカイボックスをつくるやつ` を開く",
+        "2. 時間帯（夜・夕暮れ・昼・明け方）を選ぶ。空・建物・地面の色がまとめてそろう",
+        "3. 街の明るさ、視点の高さ、建物の割合、道路、木、天気、空の乗り物などを調整する",
+        "4. 「新しく生成」でマテリアルを作る（「上書き」なら指定したマテリアルに書き込む）",
+        "5. Lighting ウィンドウの Skybox Material に、作ったマテリアルを設定する",
+        "",
+        "作ったマテリアルを「元にするマテリアル」に入れて「設定を読み込む」と、同じ街の昼版などのバリエーションを作れます。",
+        "",
+        "マテリアルは `Assets/MetlabGenerated/スカイボックスをつくるやつ/` に作られます。"
+      ]
+    }
+  }
+}

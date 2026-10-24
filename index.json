@@ -1,0 +1,12 @@
+{
+  "name": "Metlab",
+  "id": "com.metlab.vpm",
+  "url": "https://metrazero.github.io/vpm-repo/index.json",
+  "author": "MetraZero",
+  "description": "MetraZero 制作の VRChat 向けツール（〜やつ シリーズ）",
+  "infoLink": {
+    "url": "https://metrazero.github.io/vpm-repo/",
+    "text": "ツール一覧"
+  },
+  "packages": {}
+}

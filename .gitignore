@@ -1,0 +1,8 @@
+# v1.0.0
+# 配布用リポジトリで除外する一時ファイル
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+Dist/
+__pycache__/
