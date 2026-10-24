@@ -74,6 +74,23 @@
           "vpmDependencies": {},
           "url": "https://github.com/MetraZero/Metlab-AVA/releases/download/com.metlab.shortcut-v1.0.0/com.metlab.shortcut-1.0.0.zip",
           "zipSHA256": "98db66cf3b5dcd39504534431a2d5c8b514e1d9b6f3d3606faa4f31732226161"
+        },
+        "1.1.0": {
+          "name": "com.metlab.shortcut",
+          "displayName": "アセットのショートカットをつくるやつ",
+          "version": "1.1.0",
+          "unity": "2022.3",
+          "description": "よく使うフォルダやアセットのショートカットを、実際のフォルダ構成とは別に整理できるタブ。フォルダの色分け付き。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.shortcut",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-AVA/blob/main/Packages/com.metlab.shortcut/CHANGELOG.md",
+          "vpmDependencies": {},
+          "url": "https://github.com/MetraZero/Metlab-AVA/releases/download/com.metlab.shortcut-v1.1.0/com.metlab.shortcut-1.1.0.zip",
+          "zipSHA256": "83b022ae9d7fa5d14f772d4e04a7f9ca551263e00803ff80f29a9477fe960df9"
         }
       }
     },
