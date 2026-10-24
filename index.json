@@ -32,6 +32,29 @@
           "zipSHA256": "bf65b8c8d64556d4ea9390f398d6fb24bb83566a14b9339873b3a01ea44ec1d1"
         }
       }
+    },
+    "com.metlab.ava.haircolor": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.ava.haircolor",
+          "displayName": "房を選んで髪色をかえるやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "シーンビューで髪の房をクリックして、房ごとに色を塗り分けるエディタ拡張。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.ava.haircolor",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-AVA/blob/main/Packages/com.metlab.ava.haircolor/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.avatars": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-AVA/releases/download/com.metlab.ava.haircolor-v1.0.0/com.metlab.ava.haircolor-1.0.0.zip",
+          "zipSHA256": "df6d8fe8eae90ec7a5880643df087c1acb40f74d6d646e34c5818237e0a45b2e"
+        }
+      }
     }
   }
 }
