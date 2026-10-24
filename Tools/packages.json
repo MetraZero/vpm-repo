@@ -96,12 +96,12 @@
       ]
     },
     "com.metlab.shortcut": {
-      "displayName": "ショートカットをつくるやつ",
+      "displayName": "アセットのショートカットをつくるやつ",
       "description": "よく使うフォルダやアセットのショートカットを、実際のフォルダ構成とは別に整理できるタブ。フォルダの色分け付き。",
       "repos": ["AVA", "WLD"],
       "release": "AVA",
       "vpmDependencies": {},
-      "menu": "Tools/Metlab/ショートカットをつくるやつ",
+      "menu": "Tools/Metlab/アセットのショートカットをつくるやつ",
       "sources": [
         { "from": "D:/Unity/Project/MetAvatars/Assets/Metlab/Avatars/ショートカットタブ", "to": "", "exclude": ["Editor/Metlab.Avatars.ShortcutTab.Editor.asmdef"] }
       ],
@@ -110,8 +110,8 @@
       ],
       "replace": [
         { "glob": "**/*.cs", "old": "namespace Metlabo.EditorTools", "new": "namespace Metlab.Shortcut" },
-        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "[MenuItem(\"Window/MET_ Asset Shortcuts\")]", "new": "[MenuItem(\"Tools/Metlab/ショートカットをつくるやつ\")]" },
-        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "new GUIContent(\"MET Shortcuts\")", "new": "new GUIContent(\"ショートカットをつくるやつ\")" },
+        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "[MenuItem(\"Window/MET_ Asset Shortcuts\")]", "new": "[MenuItem(\"Tools/Metlab/アセットのショートカットをつくるやつ\")]" },
+        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "new GUIContent(\"MET Shortcuts\")", "new": "new GUIContent(\"アセットのショートカットをつくるやつ\")" },
         { "glob": "Editor/MET_FolderColorTag.cs", "old": "\"Assets/MET_ フォルダ色/", "new": "\"Assets/Metlab/フォルダ色/" }
       ],
       "readme": [
@@ -128,7 +128,7 @@
         "",
         "## 使い方",
         "",
-        "メニュー `Tools > Metlab > ショートカットをつくるやつ` でタブを開き、Project ウィンドウからアセットやフォルダをドラッグして登録します。",
+        "メニュー `Tools > Metlab > アセットのショートカットをつくるやつ` でタブを開き、Project ウィンドウからアセットやフォルダをドラッグして登録します。",
         "",
         "データは `ProjectSettings/MET_ShortcutData.json` に保存されます（Assets フォルダは汚しません）。"
       ]
@@ -172,12 +172,12 @@
       ]
     },
     "com.metlab.wld.skybox": {
-      "displayName": "スカイボックスをつくるやつ",
+      "displayName": "レイマーチングでスカイボックスをつくるやつ",
       "description": "時間帯・天気・街並みを選ぶだけで、街の夜景などのスカイボックス用マテリアルを作るエディタ拡張とシェーダー。",
       "repos": ["WLD"],
       "release": "WLD",
       "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
-      "menu": "Tools/Metlab/スカイボックスをつくるやつ",
+      "menu": "Tools/Metlab/レイマーチングでスカイボックスをつくるやつ",
       "sources": [
         { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/スカイボックス", "to": "", "exclude": ["Editor/Metlab.Worlds.Skybox.Editor.asmdef"] }
       ],
@@ -185,20 +185,21 @@
         { "path": "Editor/Metlab.Skybox.Editor.asmdef", "name": "Metlab.Skybox.Editor", "editor": true, "references": [] }
       ],
       "replace": [
-        { "glob": "**/*", "old": "Tools > Metlab > スカイボックス > スカイボックス生成", "new": "Tools > Metlab > スカイボックスをつくるやつ" },
-        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "\"Tools/Metlab/スカイボックス/スカイボックス生成\"", "new": "\"Tools/Metlab/スカイボックスをつくるやつ\"" },
-        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "Assets/MetlabGenerated/スカイボックス", "new": "Assets/MetlabGenerated/スカイボックスをつくるやつ" },
-        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "GetWindow<MET_SkyboxGenerator>(\"スカイボックス生成\")", "new": "GetWindow<MET_SkyboxGenerator>(\"スカイボックスをつくるやつ\")" },
+        { "glob": "**/*", "old": "Tools > Metlab > スカイボックス > スカイボックス生成", "new": "Tools > Metlab > レイマーチングでスカイボックスをつくるやつ" },
+        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "\"Tools/Metlab/スカイボックス/スカイボックス生成\"", "new": "\"Tools/Metlab/レイマーチングでスカイボックスをつくるやつ\"" },
+        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "Assets/MetlabGenerated/スカイボックス", "new": "Assets/MetlabGenerated/レイマーチングでスカイボックスをつくるやつ" },
+        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "GetWindow<MET_SkyboxGenerator>(\"スカイボックス生成\")", "new": "GetWindow<MET_SkyboxGenerator>(\"レイマーチングでスカイボックスをつくるやつ\")" },
         { "glob": "**/*", "old": "MET/Skybox/City", "new": "Metlab/Skybox/City" },
         { "glob": "Editor/MET_SkyboxGenerator.cs", "wrapNamespace": "Metlab.Skybox" }
       ],
       "readme": [
         "時間帯・街の明るさ・視点の高さ・街並み・天気などを選ぶだけで、街の景色のスカイボックス用マテリアルを作るエディタ拡張です。",
         "専用シェーダー（`Metlab/Skybox/City`）が、空・月や太陽・雲・ビルや住宅の明かり・道路・木などを描きます。",
+        "画像（テクスチャ）は使わず、視線の先にある街の区画を順にたどる「レイマーチング」という手法で、すべて計算で描いています。",
         "",
         "## 使い方",
         "",
-        "1. メニュー `Tools > Metlab > スカイボックスをつくるやつ` を開く",
+        "1. メニュー `Tools > Metlab > レイマーチングでスカイボックスをつくるやつ` を開く",
         "2. 時間帯（夜・夕暮れ・昼・明け方）を選ぶ。空・建物・地面の色がまとめてそろう",
         "3. 街の明るさ、視点の高さ、建物の割合、道路、木、天気、空の乗り物などを調整する",
         "4. 「新しく生成」でマテリアルを作る（「上書き」なら指定したマテリアルに書き込む）",
@@ -206,7 +207,300 @@
         "",
         "作ったマテリアルを「元にするマテリアル」に入れて「設定を読み込む」と、同じ街の昼版などのバリエーションを作れます。",
         "",
-        "マテリアルは `Assets/MetlabGenerated/スカイボックスをつくるやつ/` に作られます。"
+        "マテリアルは `Assets/MetlabGenerated/レイマーチングでスカイボックスをつくるやつ/` に作られます。"
+      ]
+    },
+    "com.metlab.wld.joinnotice": {
+      "displayName": "ジョインをおしらせするやつ",
+      "description": "誰かがワールドに入ってきた・出ていったときに、目の前に通知を出す UdonSharp ギミック。人ごとに文言や音を変えられる。",
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/! Metroom Profiles/! MR_S/MET_JoinNotification", "to": "", "exclude": [".claude"] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.JoinNotice.asmdef", "name": "Metlab.JoinNotice", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon", "Unity.TextMeshPro"], "udonsharp": "Metlab.JoinNotice.asset" }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "wrapNamespace": "Metlab.JoinNotice" },
+        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" },
+        { "glob": "**/*.shader", "old": "MET/UI_ZTestAlways", "new": "Metlab/UI_ZTestAlways" }
+      ],
+      "readme": [
+        "誰かがワールドに入ってきたとき・出ていったときに、自分の目の前に通知を出す UdonSharp ギミックです。",
+        "プレイヤー名ごとに「通知セット」を分けて、文言・音・見た目を変えられます（例：フレンドだけ特別な通知）。",
+        "通知はカメラに追従する HUD として表示され、壁の向こうにいても隠れません。",
+        "",
+        "## 中身",
+        "",
+        "| ファイル | 役割 |",
+        "| --- | --- |",
+        "| `MET_JoinNotification` | 本体。入退室を受け取り、通知を順番に表示する |",
+        "| `MET_NotificationSet` | 通知セット。対象のプレイヤー名・文言・音・表示パネル |",
+        "| `MET_UI_ZTestAlways`（シェーダー）＋マテリアル | 通知パネルを壁より手前に描くためのもの |",
+        "",
+        "## 使い方",
+        "",
+        "1. World Space の Canvas を作り、`CanvasGroup` と `AudioSource` を付ける",
+        "2. Canvas に `UdonBehaviour` を付け、Program Source に `MET_JoinNotification` を設定する",
+        "3. Canvas の中に通知パネル（背景の Image と TextMeshPro の文字）を作り、`UdonBehaviour`（Program Source は `MET_NotificationSet`）を付ける",
+        "   - 背景の Image に付属のマテリアルを設定すると、壁に埋まらずに表示される",
+        "   - 対象のプレイヤー名、入室／退室の文言（`{0}` がプレイヤー名になる）、音を設定する",
+        "   - 誰にも当てはまらない人用のセットには「isDefault」をオンにする",
+        "4. `MET_JoinNotification` の `sets` に、作った通知セットを登録する",
+        "",
+        "表示秒数、フェードの速さ、自分の入室も通知するか、HUD の距離などはインスペクタで変えられます。"
+      ]
+    },
+    "com.metlab.wld.randomizer": {
+      "displayName": "オブジェクトをランダムにだすやつ",
+      "description": "登録したオブジェクトを、設定した確率でまとめてON/OFFする UdonSharp スクリプト。抽選結果は全員で共有される。",
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/オブジェクトランダマイザ", "to": "", "exclude": [] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.Randomizer.asmdef", "name": "Metlab.Randomizer", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.Randomizer.asset" }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "wrapNamespace": "Metlab.Randomizer" },
+        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+      ],
+      "readme": [
+        "登録したオブジェクトを、設定した確率で「まとめて」ON または OFF にする UdonSharp スクリプトです。",
+        "レアなオブジェクトや、たまにしか出ない演出などに使えます。",
+        "",
+        "- 抽選はインスタンスに最初の1人が入ったときに1回だけ行われ、結果は後から来た人にも共有されます",
+        "- 当たり → 登録したものをすべてON、はずれ → すべてOFF",
+        "- インスタンスが空になってリセットされるまで、結果は変わりません",
+        "",
+        "## 使い方",
+        "",
+        "1. 常にアクティブな空のオブジェクトに `UdonBehaviour` を付け、Program Source に `MET_ObjectActiveRandomizer` を設定する（このオブジェクト自体は非アクティブにしない）",
+        "2. `Probability(%)` に当たりの確率を設定する",
+        "3. `Target Objects` に抽選対象を登録する。何も登録しなければ、このオブジェクトの直下の子が対象になる"
+      ]
+    },
+    "com.metlab.wld.autodoor": {
+      "displayName": "近づくとひらくドアにするやつ",
+      "description": "プレイヤーが近づくとドアがスライドして開き、離れると閉じる UdonSharp スクリプト。Animator 不要で複数枚のドアに対応。",
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/自動ドア", "to": "", "exclude": [] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.AutoDoor.asmdef", "name": "Metlab.AutoDoor", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.AutoDoor.asset" }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "wrapNamespace": "Metlab.AutoDoor" },
+        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+      ],
+      "readme": [
+        "プレイヤーが近づくとドアがスライドして開き、離れると閉じる自動ドアの UdonSharp スクリプトです。",
+        "Animator を使わずに Transform を直接動かすので、ワールドの軽量化ツールの影響を受けにくく、ドアは何枚でも登録できます。",
+        "",
+        "- 範囲内に誰かがいる間は閉じない",
+        "- 閉じている途中で誰かが近づくと、また開く",
+        "- プレイヤーの位置だけで判定するので、ネットワーク同期は不要",
+        "",
+        "## 使い方",
+        "",
+        "1. 動かない空のオブジェクトに `UdonBehaviour`（Program Source は `MET_AutoSlideDoor`）と、Is Trigger をオンにした Collider を付ける",
+        "2. 「トリガー用コライダー」に、その Collider を設定する",
+        "3. 「動かすドア」に各ドアの Transform を登録する",
+        "4. 「開くオフセット」に、各ドアが開く方向と距離（ローカル座標）を登録する（「動かすドア」と同じ数にする）",
+        "5. 必要なら、開閉の速さ・閉じるまでの待ち時間・効果音を設定する",
+        "",
+        "## 注意",
+        "",
+        "ドアのメッシュが静的バッチやメッシュ結合の対象になると、見た目が動かなくなります。ドアは最適化の対象から外してください。"
+      ]
+    },
+    "com.metlab.wld.daynight": {
+      "displayName": "昼と夜をきりかえるやつ",
+      "description": "ワールド全体の昼／夜を全員で切り替え、場所ごとの空（スカイボックス）や昼だけ・夜だけのオブジェクトも切り替える UdonSharp ギミック。",
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "Tools/Metlab/昼と夜をきりかえるやつ",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/昼夜システム", "to": "", "exclude": ["Editor/Metlab.Worlds.DayNight.Editor.asmdef", "セットアップ手順.md"] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.DayNight.asmdef", "name": "Metlab.DayNight", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.DayNight.asset" },
+        { "path": "Editor/Metlab.DayNight.Editor.asmdef", "name": "Metlab.DayNight.Editor", "editor": true, "references": ["Metlab.DayNight", "UdonSharp.Editor", "UdonSharp.Runtime", "VRC.Udon", "VRC.Udon.Editor", "VRC.SDK3", "VRC.SDKBase"] }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "wrapNamespace": "Metlab.DayNight" },
+        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" },
+        { "glob": "Editor/MET_DayNightSetup.cs", "old": "\"Tools/Metlab/昼夜システム/\"", "new": "\"Tools/Metlab/昼と夜をきりかえるやつ/\"" }
+      ],
+      "readme": [
+        "ワールド全体の「昼／夜」を全員で切り替える UdonSharp ギミックです。途中から入った人にも、今の状態が反映されます。",
+        "空（スカイボックス）は「今いる場所」ごとに変えられ、昼だけ／夜だけ表示するオブジェクトも一緒に切り替わります。",
+        "",
+        "## 中身",
+        "",
+        "| ファイル | 役割 |",
+        "| --- | --- |",
+        "| `MET_DayNightSystem` | 昼夜の状態（全員で同期）・今いる場所の判定・空の差し替え |",
+        "| `MET_SkyboxArea` | 場所1つ分（範囲の箱・昼／夜の空・その場所だけのオブジェクト） |",
+        "| `Editor/MET_DayNightSetup` | 作成メニュー |",
+        "",
+        "## 使い方",
+        "",
+        "1. メニュー `Tools > Metlab > 昼と夜をきりかえるやつ > 昼夜システムを作成` を実行する",
+        "   - `[MET]昼夜システム` ができる。「どのエリアにもいない時」の昼の空には、今の空が入る",
+        "   - 夜の空を設定する",
+        "2. 部屋ごとに空を変えたい場合は、部屋のオブジェクトを選んでから `Tools > Metlab > 昼と夜をきりかえるやつ > エリアを追加` を実行する",
+        "   - 部屋を囲む範囲の箱（BoxCollider）ができる。箱の中にいる間、その部屋の昼／夜の空になる",
+        "3. 昼だけ表示したいもの（照明など）・夜だけ表示したいものを、`[MET]昼夜システム` に登録する",
+        "4. ボタンなど別のギミックから、下のメソッドを呼んで切り替える",
+        "",
+        "## 他のギミックから使う",
+        "",
+        "| メソッド | 内容 |",
+        "| --- | --- |",
+        "| `GetIsNight()` | 今が夜か |",
+        "| `_RequestToggle()` | 全員の昼夜を反転 |",
+        "| `_RequestDay()` / `_RequestNightMode()` | 全員を昼／夜にする |",
+        "",
+        "「切り替わりを知らせる相手」に入れた UdonBehaviour には、昼夜が変わるたびに `OnDayNightChanged` イベントが届きます。",
+        "",
+        "## 注意",
+        "",
+        "- エリアの範囲が重なっている時は、エリア一覧の上にあるものが優先されます"
+      ]
+    },
+    "com.metlab.wld.returnpoint": {
+      "displayName": "落ちても元の場所にもどれるやつ",
+      "description": "エラーなどでワールドから落ちて同じインスタンスに入り直したとき、元いた場所へ自動で戻す UdonSharp スクリプト。",
+      "beta": true,
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.8.0" },
+      "menu": "",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/リジョイン復帰システム", "to": "", "exclude": [] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.ReturnPoint.asmdef", "name": "Metlab.ReturnPoint", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.ReturnPoint.asset" }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "wrapNamespace": "Metlab.ReturnPoint" },
+        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+      ],
+      "readme": [
+        "> **試作版（BETA）です。** 動作する最小構成の段階で、まれなケースには対応していません。",
+        "",
+        "エラーなどでワールドから落ちたあと、同じインスタンスに入り直したときに、元いた場所へ自動で戻す UdonSharp スクリプトです。",
+        "VRChat の Persistence（PlayerData）に、自分の位置・向き・インスタンスの目印・保存時刻を定期的に保存しておき、入り直したときに戻します。",
+        "",
+        "## 戻る条件（すべて満たしたときだけ）",
+        "",
+        "1. 前回の保存データがある（初めて入ったときは戻らない）",
+        "2. 保存したときと同じインスタンスに入った（別のインスタンスなら通常のスポーン）",
+        "3. 保存してからの時間が「復帰有効時間」（既定30分）より短い",
+        "",
+        "## 使い方",
+        "",
+        "空のオブジェクトに `UdonBehaviour` を付け、Program Source に `MET_PointReturnSystem` を設定してワールドに置くだけで動きます。設定は必要に応じて変えてください。",
+        "",
+        "## 未対応のこと",
+        "",
+        "- インスタンスのマスター自身が落ちて、すぐに入り直した場合などの特殊なケース"
+      ]
+    },
+    "com.metlab.wld.pickupscaler": {
+      "displayName": "持ったものの大きさをかえるやつ",
+      "description": "Pickup を片手で持ち、もう片方の手のグラブで両手を近づける・離すと縮小・拡大できる UdonSharp スクリプト（VR 向け）。",
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/オブジェクト拡大縮小", "to": "", "exclude": [] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.PickupScaler.asmdef", "name": "Metlab.PickupScaler", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.PickupScaler.asset" }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "wrapNamespace": "Metlab.PickupScaler" },
+        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+      ],
+      "readme": [
+        "手に持ったオブジェクトを、両手で拡大・縮小できるようにする UdonSharp スクリプトです（VR 向け。デスクトップでは使えません）。",
+        "",
+        "## 操作",
+        "",
+        "1. オブジェクトを片手で持つ",
+        "2. もう片方の手のグラブボタンを押しっぱなしにする",
+        "3. 両手を近づけると縮小、離すと拡大",
+        "4. グラブボタンを離すと、その大きさで決まる",
+        "",
+        "## 使い方",
+        "",
+        "1. 対象のオブジェクトに `VRC Pickup`（Rigidbody と Collider が必要）を付ける",
+        "2. `UdonBehaviour` を付け、Program Source に `MET_PickupScaler` を設定する",
+        "3. 最小・最大の大きさ（最初の大きさに対する倍率）を設定する",
+        "4. 大きさを全員にそろえたい場合は「グローバル同期する」をオンにし、位置がずれないよう `VRC Object Sync` も付ける",
+        "",
+        "大きさに合わせて Rigidbody の重さを変える設定もあります（既定はオフ）。"
+      ]
+    },
+    "com.metlab.wld.playergrab": {
+      "displayName": "ほかのプレイヤーをつかむやつ",
+      "description": "手に持ったアイテムで、離れた場所にいるほかのプレイヤーを掴んで、ふわふわ持ち上げて運べる UdonSharp ギミック。",
+      "beta": true,
+      "repos": ["WLD"],
+      "release": "WLD",
+      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "menu": "",
+      "sources": [
+        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/プレイヤーグラブシステム", "to": "", "exclude": [] }
+      ],
+      "asmdefs": [
+        { "path": "Metlab.PlayerGrab.asmdef", "name": "Metlab.PlayerGrab", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.PlayerGrab.asset" }
+      ],
+      "replace": [
+        { "glob": "**/*.cs", "wrapNamespace": "Metlab.PlayerGrab" },
+        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+      ],
+      "readme": [
+        "> **試作版（BETA）です。** 動作する最小構成の段階です。",
+        "",
+        "手に持った「グラブアイテム」をほかのプレイヤーに向けて、離れた場所から掴み、ふわふわ持ち上げて運べる UdonSharp ギミックです。",
+        "VRChat では他人のアバターを直接動かせないため、見えない椅子（VRCStation）に相手を座らせ、その椅子をアイテムの前へ動かしています。",
+        "",
+        "## 操作",
+        "",
+        "1. グラブアイテムを持つ",
+        "2. 人に向けてトリガー（Use）を引くと、狙った範囲（既定 15m・20°）でいちばん近い人を掴む",
+        "3. 右スティックの上下で、持つ距離を変える",
+        "4. もう一度トリガーを引くと、その場に降ろす。動かしながら離すと、その勢いで相手が飛ぶ",
+        "",
+        "## 使い方",
+        "",
+        "**グラブアイテム（手に持つもの）**",
+        "",
+        "1. `VRC Pickup`（Use を有効に）、Rigidbody、Collider を付ける",
+        "2. `UdonBehaviour` を付け、Program Source に `MET_PlayerGrabSystem` を設定する",
+        "3. `VRC Object Sync` を付ける",
+        "4. 必要なら、アイテムの先端に空のオブジェクトを置き、「銃口」に設定する（青い矢印の向きが狙う方向）",
+        "",
+        "**保持ターゲット（相手を座らせる見えない椅子・別のオブジェクト）**",
+        "",
+        "1. `VRC Station` を付け、Seated をオフ、Player Mobility を Immobilize For Vehicle、Disable Station Exit をオンにする",
+        "2. `VRC Object Sync` を付ける",
+        "3. グラブアイテムの設定欄に、この保持ターゲットを登録する"
       ]
     }
   }

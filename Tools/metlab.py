@@ -315,7 +315,8 @@ def read_version(config: dict, package_id: str) -> str:
 
 def write_repo_readmes(config: dict) -> None:
     for repo_key, repo in config["repos"].items():
-        rows = [f"| [{spec['displayName']}](Packages/{pid}) | `{pid}` | {spec['description']} | {read_version(config, pid)} |"
+        rows = [f"| [{spec['displayName']}](Packages/{pid}) | `{pid}` | {spec['description']} | "
+                f"{read_version(config, pid)}{' (BETA)' if spec.get('beta') else ''} |"
                 for pid, spec in config["packages"].items() if repo_key in spec["repos"]]
         lines = [
             f"# {repo['title']}", "",
@@ -348,26 +349,30 @@ def write_listing_page(config: dict) -> None:
             continue
         repo = config["repos"][spec["release"]]
         kind = "アバター・ワールド両方" if len(spec["repos"]) > 1 else repo["summary"]
-        items.append(f'<li><strong>{spec["displayName"]}</strong> <span class="v">v{latest}</span>'
-                     f'<span class="k">{kind}</span><br>{spec["description"]}'
-                     f' <a href="https://github.com/{repo["github"]}/tree/main/Packages/{pid}">説明</a></li>')
+        beta = '<span class="beta">BETA</span>' if spec.get("beta") else ""
+        items.append(f'<li><strong>{spec["displayName"]}</strong>{beta} <span class="v">v{latest}</span>'
+                     f'<span class="k">{kind}</span><br>{spec["description"]}<br>'
+                     f'<a href="https://github.com/{repo["github"]}/tree/main/Packages/{pid}">解説ページ</a></li>')
     html = f"""<!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Metlab</title>
+<link rel="icon" href="logo.webp" type="image/webp">
 <style>
 :root{{--bg:#fafafa;--fg:#222;--sub:#666;--card:#fff;--line:#e3e3e3;--accent:#4b6bfb}}
 @media (prefers-color-scheme:dark){{:root{{--bg:#16171a;--fg:#eee;--sub:#aaa;--card:#202226;--line:#33363c;--accent:#8aa0ff}}}}
 body{{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,"Hiragino Sans","Yu Gothic UI",sans-serif;line-height:1.7}}
 main{{max-width:760px;margin:0 auto;padding:32px 16px}}
-h1{{margin:0 0 4px}} p.sub{{color:var(--sub);margin:0 0 24px}}
+h1{{margin:0 0 20px}}
+.logo{{display:block;width:min(360px,80vw);height:auto;mix-blend-mode:multiply}}
+@media (prefers-color-scheme:dark){{.logo{{filter:invert(1);mix-blend-mode:screen}}}}
 .add{{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600}}
 code{{background:var(--card);border:1px solid var(--line);padding:2px 6px;border-radius:4px;word-break:break-all}}
 ul{{list-style:none;padding:0}} li{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}}
 .v{{color:var(--sub);margin-left:8px}} .k{{font-size:.8em;border:1px solid var(--line);border-radius:99px;padding:1px 8px;margin-left:8px;color:var(--sub)}}
+.beta{{font-size:.75em;font-weight:700;background:#ffd400;color:#222;border-radius:4px;padding:1px 6px;margin-left:8px;vertical-align:middle}}
 a{{color:var(--accent)}}
 </style></head><body><main>
-<h1>Metlab</h1>
-<p class="sub">{config["listing"]["description"]}</p>
+<h1><img class="logo" src="logo.webp" alt="めとらぼ（Metlab）"></h1>
 <p><a class="add" href="vcc://vpm/addRepo?url={url}">VCC に追加</a></p>
 <p>手動で登録する場合は、VCC / ALCOM の「Add Repository」に次の URL を入力してください。<br><code>{url}</code></p>
 <h2>ツール一覧</h2>

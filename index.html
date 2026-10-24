@@ -1,29 +1,32 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Metlab</title>
+<link rel="icon" href="logo.webp" type="image/webp">
 <style>
 :root{--bg:#fafafa;--fg:#222;--sub:#666;--card:#fff;--line:#e3e3e3;--accent:#4b6bfb}
 @media (prefers-color-scheme:dark){:root{--bg:#16171a;--fg:#eee;--sub:#aaa;--card:#202226;--line:#33363c;--accent:#8aa0ff}}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,"Hiragino Sans","Yu Gothic UI",sans-serif;line-height:1.7}
 main{max-width:760px;margin:0 auto;padding:32px 16px}
-h1{margin:0 0 4px} p.sub{color:var(--sub);margin:0 0 24px}
+h1{margin:0 0 20px}
+.logo{display:block;width:min(360px,80vw);height:auto;mix-blend-mode:multiply}
+@media (prefers-color-scheme:dark){.logo{filter:invert(1);mix-blend-mode:screen}}
 .add{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600}
 code{background:var(--card);border:1px solid var(--line);padding:2px 6px;border-radius:4px;word-break:break-all}
 ul{list-style:none;padding:0} li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
 .v{color:var(--sub);margin-left:8px} .k{font-size:.8em;border:1px solid var(--line);border-radius:99px;padding:1px 8px;margin-left:8px;color:var(--sub)}
+.beta{font-size:.75em;font-weight:700;background:#ffd400;color:#222;border-radius:4px;padding:1px 6px;margin-left:8px;vertical-align:middle}
 a{color:var(--accent)}
 </style></head><body><main>
-<h1>Metlab</h1>
-<p class="sub">MetraZero 制作の VRChat 向けツール（〜やつ シリーズ）</p>
+<h1><img class="logo" src="logo.webp" alt="めとらぼ（Metlab）"></h1>
 <p><a class="add" href="vcc://vpm/addRepo?url=https://metrazero.github.io/vpm-repo/index.json">VCC に追加</a></p>
 <p>手動で登録する場合は、VCC / ALCOM の「Add Repository」に次の URL を入力してください。<br><code>https://metrazero.github.io/vpm-repo/index.json</code></p>
 <h2>ツール一覧</h2>
 <ul>
-<li><strong>トグルをつくるやつ</strong> <span class="v">v1.0.0</span><span class="k">アバター向けツール</span><br>衣装やアクセサリのON/OFFメニューを Modular Avatar で非破壊に作るエディタ拡張。 <a href="https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.ava.toggle">説明</a></li>
-<li><strong>房を選んで髪色をかえるやつ</strong> <span class="v">v1.0.0</span><span class="k">アバター向けツール</span><br>シーンビューで髪の房をクリックして、房ごとに色を塗り分けるエディタ拡張。 <a href="https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.ava.haircolor">説明</a></li>
-<li><strong>ショートカットをつくるやつ</strong> <span class="v">v1.0.0</span><span class="k">アバター・ワールド両方</span><br>よく使うフォルダやアセットのショートカットを、実際のフォルダ構成とは別に整理できるタブ。フォルダの色分け付き。 <a href="https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.shortcut">説明</a></li>
-<li><strong>オブジェクトをプレイヤーについてこさせるやつ</strong> <span class="v">v1.0.0</span><span class="k">ワールド向けツール</span><br>オブジェクトをローカルプレイヤーの位置に追従させる UdonSharp スクリプト。軸ごとのON/OFFと範囲制限付き。 <a href="https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.followplayer">説明</a></li>
-<li><strong>スカイボックスをつくるやつ</strong> <span class="v">v1.0.0</span><span class="k">ワールド向けツール</span><br>時間帯・天気・街並みを選ぶだけで、街の夜景などのスカイボックス用マテリアルを作るエディタ拡張とシェーダー。 <a href="https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.skybox">説明</a></li>
+<li><strong>トグルをつくるやつ</strong> <span class="v">v1.0.0</span><span class="k">アバター向けツール</span><br>衣装やアクセサリのON/OFFメニューを Modular Avatar で非破壊に作るエディタ拡張。<br><a href="https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.ava.toggle">解説ページ</a></li>
+<li><strong>房を選んで髪色をかえるやつ</strong> <span class="v">v1.0.0</span><span class="k">アバター向けツール</span><br>シーンビューで髪の房をクリックして、房ごとに色を塗り分けるエディタ拡張。<br><a href="https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.ava.haircolor">解説ページ</a></li>
+<li><strong>アセットのショートカットをつくるやつ</strong> <span class="v">v1.0.0</span><span class="k">アバター・ワールド両方</span><br>よく使うフォルダやアセットのショートカットを、実際のフォルダ構成とは別に整理できるタブ。フォルダの色分け付き。<br><a href="https://github.com/MetraZero/Metlab-AVA/tree/main/Packages/com.metlab.shortcut">解説ページ</a></li>
+<li><strong>オブジェクトをプレイヤーについてこさせるやつ</strong> <span class="v">v1.0.0</span><span class="k">ワールド向けツール</span><br>オブジェクトをローカルプレイヤーの位置に追従させる UdonSharp スクリプト。軸ごとのON/OFFと範囲制限付き。<br><a href="https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.followplayer">解説ページ</a></li>
+<li><strong>レイマーチングでスカイボックスをつくるやつ</strong> <span class="v">v1.0.0</span><span class="k">ワールド向けツール</span><br>時間帯・天気・街並みを選ぶだけで、街の夜景などのスカイボックス用マテリアルを作るエディタ拡張とシェーダー。<br><a href="https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.skybox">解説ページ</a></li>
 </ul>
 <p><a href="https://github.com/MetraZero/Metlab-AVA">Metlab AVA（アバター向け）</a> ／ <a href="https://github.com/MetraZero/Metlab-WLD">Metlab WLD（ワールド向け）</a></p>
 </main></body></html>
