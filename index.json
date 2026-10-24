@@ -76,6 +76,29 @@
           "zipSHA256": "98db66cf3b5dcd39504534431a2d5c8b514e1d9b6f3d3606faa4f31732226161"
         }
       }
+    },
+    "com.metlab.wld.followplayer": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.wld.followplayer",
+          "displayName": "オブジェクトをプレイヤーについてこさせるやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "オブジェクトをローカルプレイヤーの位置に追従させる UdonSharp スクリプト。軸ごとのON/OFFと範囲制限付き。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.followplayer",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-WLD/blob/main/Packages/com.metlab.wld.followplayer/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-WLD/releases/download/com.metlab.wld.followplayer-v1.0.0/com.metlab.wld.followplayer-1.0.0.zip",
+          "zipSHA256": "3de0475f05b8b5d9444669a033ea53b20c7f177b697526f5c8b3ab597381479b"
+        }
+      }
     }
   }
 }
