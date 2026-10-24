@@ -273,6 +273,29 @@
           "zipSHA256": "c6c01e1bbc94431d4288aea1babc737f2c4f1cf1f2ff714b816ffba545853980"
         }
       }
+    },
+    "com.metlab.wld.pickupscaler": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.wld.pickupscaler",
+          "displayName": "持ったものの大きさをかえるやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "Pickup を片手で持ち、もう片方の手のグラブで両手を近づける・離すと縮小・拡大できる UdonSharp スクリプト（VR 向け）。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.pickupscaler",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-WLD/blob/main/Packages/com.metlab.wld.pickupscaler/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-WLD/releases/download/com.metlab.wld.pickupscaler-v1.0.0/com.metlab.wld.pickupscaler-1.0.0.zip",
+          "zipSHA256": "9bffe4c71d8446dc5a3b7d9a03bbd828b4078b86a13bc03f26cdbe710ec28e47"
+        }
+      }
     }
   }
 }
