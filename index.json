@@ -204,6 +204,29 @@
           "zipSHA256": "75e1ba75aac9f136492125c71c7b5408ffc0bebacda1d1be1c9e79d7f7f2fa6e"
         }
       }
+    },
+    "com.metlab.wld.autodoor": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.wld.autodoor",
+          "displayName": "近づくとひらくドアにするやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "プレイヤーが近づくとドアがスライドして開き、離れると閉じる UdonSharp スクリプト。Animator 不要で複数枚のドアに対応。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.autodoor",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-WLD/blob/main/Packages/com.metlab.wld.autodoor/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-WLD/releases/download/com.metlab.wld.autodoor-v1.0.0/com.metlab.wld.autodoor-1.0.0.zip",
+          "zipSHA256": "650e97c4c04dda351815ee1db60c2eee31c42ca19f569ed9b9518365ff0b5077"
+        }
+      }
     }
   }
 }
