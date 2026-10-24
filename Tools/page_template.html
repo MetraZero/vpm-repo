@@ -1,0 +1,96 @@
+<!doctype html>
+<!-- v1.1.0 Metlab 配信リストの一覧ページのひな形。metlab.py が %%...%% を埋めて index.html を作る。直接 index.html を編集しないこと。 -->
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metlab</title>
+<link rel="icon" href="logo.webp" type="image/webp">
+<style>
+:root{--bg:#fafafa;--fg:#222;--sub:#666;--card:#fff;--line:#e3e3e3;--field:#fff;--accent:#4b6bfb;--accent-fg:#fff;
+  --ava-bg:#fde7f1;--ava-fg:#b0306a;--ava-line:#f3b5d0;--wld-bg:#e1f5f1;--wld-fg:#127a68;--wld-line:#a6dccf}
+@media (prefers-color-scheme:dark){:root{--bg:#16171a;--fg:#eee;--sub:#aaa;--card:#202226;--line:#33363c;--field:#2a2c31;--accent:#8aa0ff;--accent-fg:#111;
+  --ava-bg:#3a1f2c;--ava-fg:#ff9cc7;--ava-line:#6b3550;--wld-bg:#173430;--wld-fg:#6fe0c8;--wld-line:#2d5e55}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,"Hiragino Sans","Yu Gothic UI",sans-serif;line-height:1.7}
+main{max-width:760px;margin:0 auto;padding:32px 16px}
+header{text-align:center;margin-bottom:28px}
+h1{margin:0 0 20px}
+.logo{display:block;margin:0 auto;width:min(360px,80vw);height:auto;border-radius:14px;background:#fff}
+.bar{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px}
+.bar input{flex:1 1 260px;max-width:380px;min-width:0;font:inherit;font-size:.9em;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--field);color:var(--fg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:.9em;font-weight:600;padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.btn.icon{width:38px;padding:8px 0}
+.btn:focus-visible,.bar input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+ul{list-style:none;padding:0} li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0}
+.v{color:var(--sub);margin-left:8px}
+.badge{display:inline-block;font-size:.75em;font-weight:700;border-radius:99px;padding:0 9px;margin-left:6px;border:1px solid;vertical-align:middle;line-height:1.7}
+.ava{background:var(--ava-bg);color:var(--ava-fg);border-color:var(--ava-line)}
+.wld{background:var(--wld-bg);color:var(--wld-fg);border-color:var(--wld-line)}
+.beta{font-size:.75em;font-weight:700;background:#ffd400;color:#222;border-radius:4px;padding:1px 6px;margin-left:8px;vertical-align:middle}
+a{color:var(--accent)}
+dialog{max-width:min(560px,calc(100vw - 32px));border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);padding:20px 22px}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog h2{margin:0 0 8px;font-size:1.15em} dialog h3{margin:16px 0 4px;font-size:1em}
+dialog ol,dialog ul.notes{margin:4px 0;padding-left:1.4em} dialog ul.notes{list-style:disc}
+dialog ul.notes li,dialog ol li{background:none;border:0;padding:0;margin:2px 0}
+dialog .close{display:flex;justify-content:flex-end;margin-top:16px}
+</style></head><body><main>
+<header>
+<h1><img class="logo" src="logo.webp" alt="めとらぼ（Metlab）"></h1>
+<div class="bar">
+  <input id="url" type="text" value="%%URL%%" readonly aria-label="配信リストの URL">
+  <a class="btn primary" href="vcc://vpm/addRepo?url=%%URL_ENC%%">VCC に追加</a>
+  <button class="btn" id="copy" type="button">コピー</button>
+  <button class="btn icon" id="help" type="button" aria-label="ヘルプ" title="ヘルプ">？</button>
+</div>
+</header>
+
+<h2>ツール一覧</h2>
+<ul>
+%%ITEMS%%
+</ul>
+<p><a href="https://github.com/MetraZero/Metlab-AVA">Metlab AVA（アバター用）</a> ／ <a href="https://github.com/MetraZero/Metlab-WLD">Metlab WLD（ワールド用）</a></p>
+</main>
+
+<dialog id="helpDialog" aria-labelledby="helpTitle">
+<h2 id="helpTitle">Metlab のツールを入れる方法</h2>
+<h3>1. 配信リストを登録する（最初の1回だけ）</h3>
+<ol>
+  <li>「VCC に追加」を押すと VCC（VRChat Creator Companion）が開くので、確認画面で追加を選びます。</li>
+  <li>VCC が開かないときや ALCOM を使っているときは、「コピー」で URL をコピーし、設定の「Packages」にある「Add Repository」に貼り付けて追加します。</li>
+</ol>
+<h3>2. ツールをプロジェクトに入れる</h3>
+<ol>
+  <li>VCC でプロジェクトの「Manage Project」を開くと、パッケージの一覧に Metlab のツールが並びます。</li>
+  <li>使いたいツールの「＋」を押すと、プロジェクトに入ります。</li>
+  <li>一覧に出てこないときは、表示するリポジトリの選択で「Metlab」にチェックが入っているか確かめてください。</li>
+</ol>
+<h3>3. 新しい版が出たら</h3>
+<p>同じ「Manage Project」の画面で、新しいバージョンを選ぶと更新できます。</p>
+<h3>知っておくと便利なこと</h3>
+<ul class="notes">
+  <li><span class="badge wld">ワールド用</span> はワールドのプロジェクトに、<span class="badge ava">アバター用</span> はアバターのプロジェクトに入ります。両方が付いているものは、どちらにも入れられます。</li>
+  <li><span class="beta">BETA</span> は試作版です。動きが変わったり、うまく動かない場面があったりします。</li>
+  <li>ウィンドウのあるツールは、Unity の上のメニュー「Tools &gt; Metlab」から開けます。</li>
+  <li>使い方は、各ツールの「解説ページ」に書いてあります。</li>
+</ul>
+<div class="close"><button class="btn" id="helpClose" type="button">閉じる</button></div>
+</dialog>
+
+<script>
+(() => {
+  const url = document.getElementById('url');
+  const copy = document.getElementById('copy');
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(url.value); }
+    catch (e) { url.select(); document.execCommand('copy'); }
+    copy.textContent = 'コピーしました';
+    setTimeout(() => { copy.textContent = 'コピー'; }, 1500);
+  });
+  url.addEventListener('focus', () => url.select());
+  const dialog = document.getElementById('helpDialog');
+  document.getElementById('help').addEventListener('click', () => dialog.showModal());
+  document.getElementById('helpClose').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+})();
+</script>
+</body></html>
