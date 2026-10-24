@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# v1.1.0
+# v1.1.1
 # Metlab 配布パッケージの管理ツール。
 # 開発プロジェクトのツールを配布用リポジトリ（Metlab-AVA / Metlab-WLD）へ同期し、
 # VPM 用の ZIP を作って GitHub Release と配信リスト（index.json）へ公開する。
@@ -11,6 +11,7 @@
 #   python Tools/metlab.py release <パッケージID> <バージョン> "<更新内容>"
 #                                                        バージョン更新・コミット・タグ・push・Release・配信リスト更新
 #
+# v1.1.1: 「解説ページ」などのリンク先を、フォルダ表示ではなく README.md 本体に変更（開いてすぐ記事が出る）。
 # v1.1.0: 一覧ページを Tools/page_template.html から作るように変更（URL コピー・ヘルプ・用途バッジ）。
 #
 # 配布用の GUID は「パッケージID＋相対パス」から決まる固定値なので、何度同期しても変わらない。
@@ -272,7 +273,7 @@ def write_package_json(config: dict, package_id: str, dest: Path) -> None:
         "description": spec["description"],
         "author": config["author"],
         "license": "MIT",
-        "documentationUrl": f"https://github.com/{repo['github']}/tree/main/Packages/{package_id}",
+        "documentationUrl": f"https://github.com/{repo['github']}/blob/main/Packages/{package_id}/README.md",
         "changelogUrl": f"https://github.com/{repo['github']}/blob/main/Packages/{package_id}/CHANGELOG.md",
         "vpmDependencies": spec["vpmDependencies"],
     })
@@ -320,7 +321,7 @@ def read_version(config: dict, package_id: str) -> str:
 
 def write_repo_readmes(config: dict) -> None:
     for repo_key, repo in config["repos"].items():
-        rows = [f"| [{spec['displayName']}](Packages/{pid}) | `{pid}` | {spec['description']} | "
+        rows = [f"| [{spec['displayName']}](Packages/{pid}/README.md) | `{pid}` | {spec['description']} | "
                 f"{read_version(config, pid)}{' (BETA)' if spec.get('beta') else ''} |"
                 for pid, spec in config["packages"].items() if repo_key in spec["repos"]]
         lines = [
@@ -359,7 +360,7 @@ def write_listing_page(config: dict) -> None:
         kinds = "".join(badges[key] for key in ("WLD", "AVA") if key in spec["repos"])
         items.append(f'<li><strong>{html.escape(spec["displayName"])}</strong>{beta} <span class="v">v{latest}</span>'
                      f'{kinds}<br>{html.escape(spec["description"])}<br>'
-                     f'<a href="https://github.com/{repo["github"]}/tree/main/Packages/{pid}">解説ページ</a></li>')
+                     f'<a href="https://github.com/{repo["github"]}/blob/main/Packages/{pid}/README.md">解説ページ</a></li>')
     page = (PAGE_TEMPLATE_PATH.read_text(encoding="utf-8")
             .replace("%%URL_ENC%%", quote(url, safe=""))
             .replace("%%URL%%", html.escape(url))
