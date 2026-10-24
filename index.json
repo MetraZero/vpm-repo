@@ -99,6 +99,29 @@
           "zipSHA256": "3de0475f05b8b5d9444669a033ea53b20c7f177b697526f5c8b3ab597381479b"
         }
       }
+    },
+    "com.metlab.wld.skybox": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.wld.skybox",
+          "displayName": "スカイボックスをつくるやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "時間帯・天気・街並みを選ぶだけで、街の夜景などのスカイボックス用マテリアルを作るエディタ拡張とシェーダー。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.skybox",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-WLD/blob/main/Packages/com.metlab.wld.skybox/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-WLD/releases/download/com.metlab.wld.skybox-v1.0.0/com.metlab.wld.skybox-1.0.0.zip",
+          "zipSHA256": "d01221e672b37a770fd3b4fbe85789fa3ae165f6b5b0e7bc3a60aba94f0f346b"
+        }
+      }
     }
   }
 }
