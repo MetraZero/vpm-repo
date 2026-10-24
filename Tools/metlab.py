@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# v1.1.1
+# v1.2.0
 # Metlab 配布パッケージの管理ツール。
 # 開発プロジェクトのツールを配布用リポジトリ（Metlab-AVA / Metlab-WLD）へ同期し、
 # VPM 用の ZIP を作って GitHub Release と配信リスト（index.json）へ公開する。
@@ -11,6 +11,7 @@
 #   python Tools/metlab.py release <パッケージID> <バージョン> "<更新内容>"
 #                                                        バージョン更新・コミット・タグ・push・Release・配信リスト更新
 #
+# v1.2.0: 公開の直前に、UdonSharp のプログラムアセットに残る他プロジェクトへの参照を自動で消すようにした。
 # v1.1.1: 「解説ページ」などのリンク先を、フォルダ表示ではなく README.md 本体に変更（開いてすぐ記事が出る）。
 # v1.1.0: 一覧ページを Tools/page_template.html から作るように変更（URL コピー・ヘルプ・用途バッジ）。
 #
@@ -386,6 +387,19 @@ def build_zip(config: dict, package_id: str) -> Path:
     return output
 
 
+UDON_PROGRAM_REF_RE = re.compile(r"serializedUdonProgramAsset: \{fileID: 11400000, guid: [0-9a-f]{32}, type: 2\}")
+
+
+def clear_udon_program_refs(dest: Path) -> None:
+    """UdonSharp のプログラムアセットに残った「開発／テスト用プロジェクトの中のファイル」への参照を消す。
+    動作確認で Unity に読み込ませると UdonSharp が書き込むため、公開の直前に必ず消す（利用者側で作り直される）。"""
+    for path in sorted(dest.rglob("*.asset")):
+        text, bom = read_text(path)
+        new_text = UDON_PROGRAM_REF_RE.sub("serializedUdonProgramAsset: {fileID: 0}", text)
+        if new_text != text:
+            write_text(path, new_text, bom)
+
+
 def release(config: dict, package_id: str, version: str, note: str) -> None:
     spec = config["packages"].get(package_id) or fail(f"packages.json に無いパッケージ: {package_id}")
     if not re.fullmatch(r"\d+\.\d+\.\d+", version):
@@ -400,6 +414,7 @@ def release(config: dict, package_id: str, version: str, note: str) -> None:
     today = date.today().isoformat()
     for repo_key in spec["repos"]:
         dest = package_dir(config, repo_key, package_id)
+        clear_udon_program_refs(dest)
         manifest_path = dest / "package.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         manifest["version"] = version

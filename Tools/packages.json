@@ -1,6 +1,9 @@
 {
-  "_comment": "v1.0.0 Metlab 配布パッケージの定義。開発プロジェクトのどこからコピーし、配布用にどう書き換えるかをここで決める。",
-  "author": { "name": "MetraZero", "url": "https://github.com/MetraZero" },
+  "_comment": "v1.1.0（開発版の表示名・メニューを配布版にそろえたので、その置換ルールを削除） Metlab 配布パッケージの定義。開発プロジェクトのどこからコピーし、配布用にどう書き換えるかをここで決める。",
+  "author": {
+    "name": "MetraZero",
+    "url": "https://github.com/MetraZero"
+  },
   "listing": {
     "name": "Metlab",
     "id": "com.metlab.vpm",
@@ -8,8 +11,18 @@
     "description": "MetraZero 制作の VRChat 向けツール（〜やつ シリーズ）"
   },
   "repos": {
-    "AVA": { "title": "Metlab AVA", "github": "MetraZero/Metlab-AVA", "local": "D:/Unity/Metlab-AVA", "summary": "アバター向けツール" },
-    "WLD": { "title": "Metlab WLD", "github": "MetraZero/Metlab-WLD", "local": "D:/Unity/Metlab-WLD", "summary": "ワールド向けツール" }
+    "AVA": {
+      "title": "Metlab AVA",
+      "github": "MetraZero/Metlab-AVA",
+      "local": "D:/Unity/Metlab-AVA",
+      "summary": "アバター向けツール"
+    },
+    "WLD": {
+      "title": "Metlab WLD",
+      "github": "MetraZero/Metlab-WLD",
+      "local": "D:/Unity/Metlab-WLD",
+      "summary": "ワールド向けツール"
+    }
   },
   "packages": {
     "com.metlab.ava.toggle": {
@@ -17,23 +30,19 @@
       "description": "衣装やアクセサリのON/OFFメニューを Modular Avatar で非破壊に作るエディタ拡張。",
       "repos": ["AVA"],
       "release": "AVA",
-      "vpmDependencies": { "com.vrchat.avatars": ">=3.7.0", "nadena.dev.modular-avatar": ">=1.10.0" },
+      "vpmDependencies": {"com.vrchat.avatars": ">=3.7.0", "nadena.dev.modular-avatar": ">=1.10.0"},
       "menu": "Tools/Metlab/トグルをつくるやつ",
       "sources": [
-        { "from": "D:/Unity/Project/MetAvatars/Assets/MetAvatars_CostumeToggle", "to": "", "exclude": ["_Backups", "_Generated", "Textures"] }
+        {"from": "D:/Unity/Project/MetAvatars/Assets/MetAvatars_CostumeToggle", "to": "", "exclude": ["_Backups", "_Generated", "Textures"]}
       ],
       "asmdefs": [
-        { "path": "Metlab.Toggle.asmdef", "name": "Metlab.Toggle", "editor": false, "references": ["VRC.SDK3A", "VRC.SDKBase"] },
-        { "path": "Editor/Metlab.Toggle.Editor.asmdef", "name": "Metlab.Toggle.Editor", "editor": true, "references": ["Metlab.Toggle", "VRC.SDK3A", "VRC.SDKBase", "nadena.dev.modular-avatar.core"] }
+        {"path": "Metlab.Toggle.asmdef", "name": "Metlab.Toggle", "editor": false, "references": ["VRC.SDK3A", "VRC.SDKBase"]},
+        {"path": "Editor/Metlab.Toggle.Editor.asmdef", "name": "Metlab.Toggle.Editor", "editor": true, "references": ["Metlab.Toggle", "VRC.SDK3A", "VRC.SDKBase", "nadena.dev.modular-avatar.core"]}
       ],
       "replace": [
-        { "glob": "**/*.cs", "old": "namespace MetAvatars.CostumeToggle", "new": "namespace Metlab.Toggle" },
-        { "glob": "Editor/CostumeToggleWindow.cs", "old": "Tools/メトラボ/トグルメニューをつくるやつ", "new": "Tools/Metlab/トグルをつくるやつ" },
-        { "glob": "Editor/CostumeToggleWindow.cs", "old": "new GUIContent(\"トグルメニューをつくるやつ\")", "new": "new GUIContent(\"トグルをつくるやつ\")" },
-        { "glob": "Editor/CostumeToggleWindow.cs", "old": "// トグルメニューをつくるやつ 本体ウィンドウ", "new": "// トグルをつくるやつ 本体ウィンドウ" },
-        { "glob": "Editor/CostumeToggleGenerator.cs", "old": "\"Assets/MetAvatars_CostumeToggle/_Generated\"", "new": "\"Assets/MetlabGenerated/トグルをつくるやつ\"" },
-        { "glob": "Editor/CostumeToggleGenerator.cs", "old": "\"Assets/MetAvatars_CostumeToggle/_Backups\"", "new": "\"Assets/MetlabGenerated/トグルをつくるやつ/_Backups\"" },
-        { "glob": "CostumeTogglePreset.cs", "old": "menuName = \"MetAvatars/衣装トグル設定テンプレート\"", "new": "menuName = \"Metlab/トグルをつくるやつ テンプレート\"" }
+        {"glob": "**/*.cs", "old": "namespace MetAvatars.CostumeToggle", "new": "namespace Metlab.Toggle"},
+        {"glob": "Editor/CostumeToggleGenerator.cs", "old": "\"Assets/MetAvatars_CostumeToggle/_Generated\"", "new": "\"Assets/MetlabGenerated/トグルをつくるやつ\""},
+        {"glob": "Editor/CostumeToggleGenerator.cs", "old": "\"Assets/MetAvatars_CostumeToggle/_Backups\"", "new": "\"Assets/MetlabGenerated/トグルをつくるやつ/_Backups\""}
       ],
       "readme": [
         "アバターの衣装・アクセサリ・小物などを、Expression メニューからON/OFFできるようにするエディタ拡張です。",
@@ -64,20 +73,17 @@
       "description": "シーンビューで髪の房をクリックして、房ごとに色を塗り分けるエディタ拡張。",
       "repos": ["AVA"],
       "release": "AVA",
-      "vpmDependencies": { "com.vrchat.avatars": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.avatars": ">=3.7.0"},
       "menu": "Tools/Metlab/房を選んで髪色をかえるやつ",
       "sources": [
-        { "from": "D:/Unity/Project/MetAvatars/Assets/MetAvatars_HairColorTool", "to": "", "exclude": ["_Generated"] }
+        {"from": "D:/Unity/Project/MetAvatars/Assets/MetAvatars_HairColorTool", "to": "", "exclude": ["_Generated"]}
       ],
       "asmdefs": [
-        { "path": "Editor/Metlab.HairColor.Editor.asmdef", "name": "Metlab.HairColor.Editor", "editor": true, "references": [] }
+        {"path": "Editor/Metlab.HairColor.Editor.asmdef", "name": "Metlab.HairColor.Editor", "editor": true, "references": []}
       ],
       "replace": [
-        { "glob": "**/*.cs", "old": "namespace MetAvatars.HairColorTool", "new": "namespace Metlab.HairColor" },
-        { "glob": "**/*.cs", "old": "Tools/メトラボ/", "new": "Tools/Metlab/" },
-        { "glob": "**/*.cs", "old": "髪ふさカラーエディタ", "new": "房を選んで髪色をかえるやつ" },
-        { "glob": "Editor/HairColorToolWindow.cs", "old": "new GUIContent(\"髪ふさカラー\")", "new": "new GUIContent(\"房を選んで髪色をかえるやつ\")" },
-        { "glob": "Editor/HairColorToolWindow.cs", "old": "\"Assets/MetAvatars_HairColorTool/_Generated\"", "new": "\"Assets/MetlabGenerated/房を選んで髪色をかえるやつ\"" }
+        {"glob": "**/*.cs", "old": "namespace MetAvatars.HairColorTool", "new": "namespace Metlab.HairColor"},
+        {"glob": "Editor/HairColorToolWindow.cs", "old": "\"Assets/MetAvatars_HairColorTool/_Generated\"", "new": "\"Assets/MetlabGenerated/房を選んで髪色をかえるやつ\""}
       ],
       "readme": [
         "髪のメッシュを「房（つながったポリゴンのかたまり）」ごとに見分けて、クリックした房だけ色を変えるエディタ拡張です。",
@@ -103,16 +109,13 @@
       "vpmDependencies": {},
       "menu": "Tools/Metlab/アセットのショートカットをつくるやつ",
       "sources": [
-        { "from": "D:/Unity/Project/MetAvatars/Assets/Metlab/Avatars/ショートカットタブ", "to": "", "exclude": ["Editor/Metlab.Avatars.ShortcutTab.Editor.asmdef"] }
+        {"from": "D:/Unity/Project/MetAvatars/Assets/Metlab/Avatars/ショートカットタブ", "to": "", "exclude": ["Editor/Metlab.Avatars.ShortcutTab.Editor.asmdef"]}
       ],
       "asmdefs": [
-        { "path": "Editor/Metlab.Shortcut.Editor.asmdef", "name": "Metlab.Shortcut.Editor", "editor": true, "references": [] }
+        {"path": "Editor/Metlab.Shortcut.Editor.asmdef", "name": "Metlab.Shortcut.Editor", "editor": true, "references": []}
       ],
       "replace": [
-        { "glob": "**/*.cs", "old": "namespace Metlabo.EditorTools", "new": "namespace Metlab.Shortcut" },
-        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "[MenuItem(\"Window/MET_ Asset Shortcuts\")]", "new": "[MenuItem(\"Tools/Metlab/アセットのショートカットをつくるやつ\")]" },
-        { "glob": "Editor/MET_ShortcutWindow.cs", "old": "new GUIContent(\"MET Shortcuts\")", "new": "new GUIContent(\"アセットのショートカットをつくるやつ\")" },
-        { "glob": "Editor/MET_FolderColorTag.cs", "old": "\"Assets/MET_ フォルダ色/", "new": "\"Assets/Metlab/フォルダ色/" }
+        {"glob": "**/*.cs", "old": "namespace Metlabo.EditorTools", "new": "namespace Metlab.Shortcut"}
       ],
       "readme": [
         "Project ウィンドウとは別に、自分だけの「仮想フォルダ」でアセットのショートカットを整理できるタブです。",
@@ -138,18 +141,18 @@
       "description": "オブジェクトをローカルプレイヤーの位置に追従させる UdonSharp スクリプト。軸ごとのON/OFFと範囲制限付き。",
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/METDEV/Script/FollowPlayerwithinBounds", "to": "", "exclude": [] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/METDEV/Script/FollowPlayerwithinBounds", "to": "", "exclude": []}
       ],
       "asmdefs": [
-        { "path": "Metlab.FollowPlayer.asmdef", "name": "Metlab.FollowPlayer", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.Udon"], "udonsharp": "Metlab.FollowPlayer.asset" }
+        {"path": "Metlab.FollowPlayer.asmdef", "name": "Metlab.FollowPlayer", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.Udon"], "udonsharp": "Metlab.FollowPlayer.asset"}
       ],
       "replace": [
-        { "glob": "FollowPlayerWithinBounds.cs", "old": "using UdonSharp;", "new": "// v1.0.0\n// オブジェクトをローカルプレイヤーの位置へ追従させる UdonSharp スクリプト（軸ごとのON/OFF・ワールド座標の範囲制限付き）。\n\nusing UdonSharp;" },
-        { "glob": "FollowPlayerWithinBounds.cs", "wrapNamespace": "Metlab.FollowPlayer" },
-        { "glob": "FollowPlayerWithinBounds.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+        {"glob": "FollowPlayerWithinBounds.cs", "old": "using UdonSharp;", "new": "// v1.0.0\n// オブジェクトをローカルプレイヤーの位置へ追従させる UdonSharp スクリプト（軸ごとのON/OFF・ワールド座標の範囲制限付き）。\n\nusing UdonSharp;"},
+        {"glob": "FollowPlayerWithinBounds.cs", "wrapNamespace": "Metlab.FollowPlayer"},
+        {"glob": "FollowPlayerWithinBounds.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "オブジェクトを、そのワールドにいる自分（ローカルプレイヤー）の位置へついてこさせる UdonSharp スクリプトです。",
@@ -176,21 +179,17 @@
       "description": "時間帯・天気・街並みを選ぶだけで、街の夜景などのスカイボックス用マテリアルを作るエディタ拡張とシェーダー。",
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "Tools/Metlab/レイマーチングでスカイボックスをつくるやつ",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/スカイボックス", "to": "", "exclude": ["Editor/Metlab.Worlds.Skybox.Editor.asmdef"] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/スカイボックス", "to": "", "exclude": ["Editor/Metlab.Worlds.Skybox.Editor.asmdef"]}
       ],
       "asmdefs": [
-        { "path": "Editor/Metlab.Skybox.Editor.asmdef", "name": "Metlab.Skybox.Editor", "editor": true, "references": [] }
+        {"path": "Editor/Metlab.Skybox.Editor.asmdef", "name": "Metlab.Skybox.Editor", "editor": true, "references": []}
       ],
       "replace": [
-        { "glob": "**/*", "old": "Tools > Metlab > スカイボックス > スカイボックス生成", "new": "Tools > Metlab > レイマーチングでスカイボックスをつくるやつ" },
-        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "\"Tools/Metlab/スカイボックス/スカイボックス生成\"", "new": "\"Tools/Metlab/レイマーチングでスカイボックスをつくるやつ\"" },
-        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "Assets/MetlabGenerated/スカイボックス", "new": "Assets/MetlabGenerated/レイマーチングでスカイボックスをつくるやつ" },
-        { "glob": "Editor/MET_SkyboxGenerator.cs", "old": "GetWindow<MET_SkyboxGenerator>(\"スカイボックス生成\")", "new": "GetWindow<MET_SkyboxGenerator>(\"レイマーチングでスカイボックスをつくるやつ\")" },
-        { "glob": "**/*", "old": "MET/Skybox/City", "new": "Metlab/Skybox/City" },
-        { "glob": "Editor/MET_SkyboxGenerator.cs", "wrapNamespace": "Metlab.Skybox" }
+        {"glob": "Editor/MET_SkyboxGenerator.cs", "old": "Assets/MetlabGenerated/スカイボックス", "new": "Assets/MetlabGenerated/レイマーチングでスカイボックスをつくるやつ"},
+        {"glob": "Editor/MET_SkyboxGenerator.cs", "wrapNamespace": "Metlab.Skybox"}
       ],
       "readme": [
         "時間帯・街の明るさ・視点の高さ・街並み・天気などを選ぶだけで、街の景色のスカイボックス用マテリアルを作るエディタ拡張です。",
@@ -215,18 +214,17 @@
       "description": "誰かがワールドに入ってきた・出ていったときに、目の前に通知を出す UdonSharp ギミック。人ごとに文言や音を変えられる。",
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/! Metroom Profiles/! MR_S/MET_JoinNotification", "to": "", "exclude": [".claude"] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/! Metroom Profiles/! MR_S/MET_JoinNotification", "to": "", "exclude": [".claude"]}
       ],
       "asmdefs": [
-        { "path": "Metlab.JoinNotice.asmdef", "name": "Metlab.JoinNotice", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon", "Unity.TextMeshPro"], "udonsharp": "Metlab.JoinNotice.asset" }
+        {"path": "Metlab.JoinNotice.asmdef", "name": "Metlab.JoinNotice", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon", "Unity.TextMeshPro"], "udonsharp": "Metlab.JoinNotice.asset"}
       ],
       "replace": [
-        { "glob": "**/*.cs", "wrapNamespace": "Metlab.JoinNotice" },
-        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" },
-        { "glob": "**/*.shader", "old": "MET/UI_ZTestAlways", "new": "Metlab/UI_ZTestAlways" }
+        {"glob": "**/*.cs", "wrapNamespace": "Metlab.JoinNotice"},
+        {"glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "誰かがワールドに入ってきたとき・出ていったときに、自分の目の前に通知を出す UdonSharp ギミックです。",
@@ -259,17 +257,17 @@
       "description": "登録したオブジェクトを、設定した確率でまとめてON/OFFする UdonSharp スクリプト。抽選結果は全員で共有される。",
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/オブジェクトランダマイザ", "to": "", "exclude": [] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/オブジェクトランダマイザ", "to": "", "exclude": []}
       ],
       "asmdefs": [
-        { "path": "Metlab.Randomizer.asmdef", "name": "Metlab.Randomizer", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.Randomizer.asset" }
+        {"path": "Metlab.Randomizer.asmdef", "name": "Metlab.Randomizer", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.Randomizer.asset"}
       ],
       "replace": [
-        { "glob": "**/*.cs", "wrapNamespace": "Metlab.Randomizer" },
-        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+        {"glob": "**/*.cs", "wrapNamespace": "Metlab.Randomizer"},
+        {"glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "登録したオブジェクトを、設定した確率で「まとめて」ON または OFF にする UdonSharp スクリプトです。",
@@ -291,17 +289,17 @@
       "description": "プレイヤーが近づくとドアがスライドして開き、離れると閉じる UdonSharp スクリプト。Animator 不要で複数枚のドアに対応。",
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/自動ドア", "to": "", "exclude": [] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/自動ドア", "to": "", "exclude": []}
       ],
       "asmdefs": [
-        { "path": "Metlab.AutoDoor.asmdef", "name": "Metlab.AutoDoor", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.AutoDoor.asset" }
+        {"path": "Metlab.AutoDoor.asmdef", "name": "Metlab.AutoDoor", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.AutoDoor.asset"}
       ],
       "replace": [
-        { "glob": "**/*.cs", "wrapNamespace": "Metlab.AutoDoor" },
-        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+        {"glob": "**/*.cs", "wrapNamespace": "Metlab.AutoDoor"},
+        {"glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "プレイヤーが近づくとドアがスライドして開き、離れると閉じる自動ドアの UdonSharp スクリプトです。",
@@ -329,19 +327,18 @@
       "description": "ワールド全体の昼／夜を全員で切り替え、場所ごとの空（スカイボックス）や昼だけ・夜だけのオブジェクトも切り替える UdonSharp ギミック。",
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "Tools/Metlab/昼と夜をきりかえるやつ",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/昼夜システム", "to": "", "exclude": ["Editor/Metlab.Worlds.DayNight.Editor.asmdef", "セットアップ手順.md"] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/昼夜システム", "to": "", "exclude": ["Editor/Metlab.Worlds.DayNight.Editor.asmdef", "セットアップ手順.md"]}
       ],
       "asmdefs": [
-        { "path": "Metlab.DayNight.asmdef", "name": "Metlab.DayNight", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.DayNight.asset" },
-        { "path": "Editor/Metlab.DayNight.Editor.asmdef", "name": "Metlab.DayNight.Editor", "editor": true, "references": ["Metlab.DayNight", "UdonSharp.Editor", "UdonSharp.Runtime", "VRC.Udon", "VRC.Udon.Editor", "VRC.SDK3", "VRC.SDKBase"] }
+        {"path": "Metlab.DayNight.asmdef", "name": "Metlab.DayNight", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.DayNight.asset"},
+        {"path": "Editor/Metlab.DayNight.Editor.asmdef", "name": "Metlab.DayNight.Editor", "editor": true, "references": ["Metlab.DayNight", "UdonSharp.Editor", "UdonSharp.Runtime", "VRC.Udon", "VRC.Udon.Editor", "VRC.SDK3", "VRC.SDKBase"]}
       ],
       "replace": [
-        { "glob": "**/*.cs", "wrapNamespace": "Metlab.DayNight" },
-        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" },
-        { "glob": "Editor/MET_DayNightSetup.cs", "old": "\"Tools/Metlab/昼夜システム/\"", "new": "\"Tools/Metlab/昼と夜をきりかえるやつ/\"" }
+        {"glob": "**/*.cs", "wrapNamespace": "Metlab.DayNight"},
+        {"glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "ワールド全体の「昼／夜」を全員で切り替える UdonSharp ギミックです。途中から入った人にも、今の状態が反映されます。",
@@ -386,17 +383,17 @@
       "beta": true,
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.8.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.8.0"},
       "menu": "",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/リジョイン復帰システム", "to": "", "exclude": [] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/リジョイン復帰システム", "to": "", "exclude": []}
       ],
       "asmdefs": [
-        { "path": "Metlab.ReturnPoint.asmdef", "name": "Metlab.ReturnPoint", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.ReturnPoint.asset" }
+        {"path": "Metlab.ReturnPoint.asmdef", "name": "Metlab.ReturnPoint", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.ReturnPoint.asset"}
       ],
       "replace": [
-        { "glob": "**/*.cs", "wrapNamespace": "Metlab.ReturnPoint" },
-        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+        {"glob": "**/*.cs", "wrapNamespace": "Metlab.ReturnPoint"},
+        {"glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "> **試作版（BETA）です。** 動作する最小構成の段階で、まれなケースには対応していません。",
@@ -424,17 +421,17 @@
       "description": "Pickup を片手で持ち、もう片方の手のグラブで両手を近づける・離すと縮小・拡大できる UdonSharp スクリプト（VR 向け）。",
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/オブジェクト拡大縮小", "to": "", "exclude": [] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/オブジェクト拡大縮小", "to": "", "exclude": []}
       ],
       "asmdefs": [
-        { "path": "Metlab.PickupScaler.asmdef", "name": "Metlab.PickupScaler", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.PickupScaler.asset" }
+        {"path": "Metlab.PickupScaler.asmdef", "name": "Metlab.PickupScaler", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.PickupScaler.asset"}
       ],
       "replace": [
-        { "glob": "**/*.cs", "wrapNamespace": "Metlab.PickupScaler" },
-        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+        {"glob": "**/*.cs", "wrapNamespace": "Metlab.PickupScaler"},
+        {"glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "手に持ったオブジェクトを、両手で拡大・縮小できるようにする UdonSharp スクリプトです（VR 向け。デスクトップでは使えません）。",
@@ -462,17 +459,17 @@
       "beta": true,
       "repos": ["WLD"],
       "release": "WLD",
-      "vpmDependencies": { "com.vrchat.worlds": ">=3.7.0" },
+      "vpmDependencies": {"com.vrchat.worlds": ">=3.7.0"},
       "menu": "",
       "sources": [
-        { "from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/プレイヤーグラブシステム", "to": "", "exclude": [] }
+        {"from": "D:/Unity/Project/Metroom - Far Sky -/Assets/Metlab/Worlds/プレイヤーグラブシステム", "to": "", "exclude": []}
       ],
       "asmdefs": [
-        { "path": "Metlab.PlayerGrab.asmdef", "name": "Metlab.PlayerGrab", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.PlayerGrab.asset" }
+        {"path": "Metlab.PlayerGrab.asmdef", "name": "Metlab.PlayerGrab", "editor": false, "references": ["UdonSharp.Runtime", "VRC.SDKBase", "VRC.SDK3", "VRC.Udon"], "udonsharp": "Metlab.PlayerGrab.asset"}
       ],
       "replace": [
-        { "glob": "**/*.cs", "wrapNamespace": "Metlab.PlayerGrab" },
-        { "glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}" }
+        {"glob": "**/*.cs", "wrapNamespace": "Metlab.PlayerGrab"},
+        {"glob": "*.asset", "regex": "serializedUdonProgramAsset: \\{[^}]*\\}", "new": "serializedUdonProgramAsset: {fileID: 0}"}
       ],
       "readme": [
         "> **試作版（BETA）です。** 動作する最小構成の段階です。",
