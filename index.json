@@ -181,6 +181,29 @@
           "zipSHA256": "3aa79968fa15965ff758906436fa74898f43689af5ef94e365c61b128a0f3d8a"
         }
       }
+    },
+    "com.metlab.wld.randomizer": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.wld.randomizer",
+          "displayName": "オブジェクトをランダムにだすやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "登録したオブジェクトを、設定した確率でまとめてON/OFFする UdonSharp スクリプト。抽選結果は全員で共有される。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.randomizer",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-WLD/blob/main/Packages/com.metlab.wld.randomizer/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-WLD/releases/download/com.metlab.wld.randomizer-v1.0.0/com.metlab.wld.randomizer-1.0.0.zip",
+          "zipSHA256": "75e1ba75aac9f136492125c71c7b5408ffc0bebacda1d1be1c9e79d7f7f2fa6e"
+        }
+      }
     }
   }
 }
