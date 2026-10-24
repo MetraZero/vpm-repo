@@ -158,6 +158,29 @@
           "zipSHA256": "77f80759d2df07c19f6692f45f4632e57f9cfddf2824d97d89e1e2b6c08370ed"
         }
       }
+    },
+    "com.metlab.wld.joinnotice": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.wld.joinnotice",
+          "displayName": "ジョインをおしらせするやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "誰かがワールドに入ってきた・出ていったときに、目の前に通知を出す UdonSharp ギミック。人ごとに文言や音を変えられる。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.joinnotice",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-WLD/blob/main/Packages/com.metlab.wld.joinnotice/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-WLD/releases/download/com.metlab.wld.joinnotice-v1.0.0/com.metlab.wld.joinnotice-1.0.0.zip",
+          "zipSHA256": "3aa79968fa15965ff758906436fa74898f43689af5ef94e365c61b128a0f3d8a"
+        }
+      }
     }
   }
 }
