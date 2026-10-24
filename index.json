@@ -227,6 +227,29 @@
           "zipSHA256": "650e97c4c04dda351815ee1db60c2eee31c42ca19f569ed9b9518365ff0b5077"
         }
       }
+    },
+    "com.metlab.wld.daynight": {
+      "versions": {
+        "1.0.0": {
+          "name": "com.metlab.wld.daynight",
+          "displayName": "昼と夜をきりかえるやつ",
+          "version": "1.0.0",
+          "unity": "2022.3",
+          "description": "ワールド全体の昼／夜を全員で切り替え、場所ごとの空（スカイボックス）や昼だけ・夜だけのオブジェクトも切り替える UdonSharp ギミック。",
+          "author": {
+            "name": "MetraZero",
+            "url": "https://github.com/MetraZero"
+          },
+          "license": "MIT",
+          "documentationUrl": "https://github.com/MetraZero/Metlab-WLD/tree/main/Packages/com.metlab.wld.daynight",
+          "changelogUrl": "https://github.com/MetraZero/Metlab-WLD/blob/main/Packages/com.metlab.wld.daynight/CHANGELOG.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.7.0"
+          },
+          "url": "https://github.com/MetraZero/Metlab-WLD/releases/download/com.metlab.wld.daynight-v1.0.0/com.metlab.wld.daynight-1.0.0.zip",
+          "zipSHA256": "aa057fc717aa54fcbafcd32de27615f5e5b49e315ff391b6b8c89038718d83f5"
+        }
+      }
     }
   }
 }
