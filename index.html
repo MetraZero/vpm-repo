@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- v1.1.1 ロゴの白い下地をやめ、画像の透過をそのまま生かす。 -->
 <!-- v1.1.0 Metlab 配信リストの一覧ページのひな形。metlab.py が %%...%% を埋めて index.html を作る。直接 index.html を編集しないこと。 -->
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Metlab</title>
@@ -13,7 +14,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,"Hiragi
 main{max-width:760px;margin:0 auto;padding:32px 16px}
 header{text-align:center;margin-bottom:28px}
 h1{margin:0 0 20px}
-.logo{display:block;margin:0 auto;width:min(360px,80vw);height:auto;border-radius:14px;background:#fff}
+.logo{display:block;margin:0 auto;width:min(360px,80vw);height:auto}
 .bar{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px}
 .bar input{flex:1 1 260px;max-width:380px;min-width:0;font:inherit;font-size:.9em;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--field);color:var(--fg)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:.9em;font-weight:600;padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;text-decoration:none;white-space:nowrap}
